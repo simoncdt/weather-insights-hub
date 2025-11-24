@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ZAxis } from "recharts";
-import { WeatherData } from "@/lib/weatherData";
+import { WeatherData } from "@/lib/weatherApi";
 
 interface CorrelationChartProps {
   data: WeatherData[];
