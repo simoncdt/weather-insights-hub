@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Thermometer, CloudRain, Droplets, Wind } from "lucide-react";
-import { WeatherData } from "@/lib/weatherData";
+import { WeatherData } from "@/lib/weatherApi";
 
 interface StatisticsCardsProps {
   data: WeatherData[];

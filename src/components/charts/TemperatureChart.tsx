@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from "recharts";
-import { WeatherData } from "@/lib/weatherData";
+import { WeatherData } from "@/lib/weatherApi";
 import { format } from "date-fns";
 
 interface TemperatureChartProps {
