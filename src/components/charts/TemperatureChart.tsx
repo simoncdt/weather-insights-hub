@@ -29,48 +29,43 @@ export const TemperatureChart = ({ data, city }: TemperatureChartProps) => {
   }));
 
   return (
-    <Card className="p-6 shadow-[var(--shadow-data)] border-border/50">
-      <div className="mb-6">
-        <h3 className="text-lg font-semibold mb-1">Évolution de la température</h3>
-        <p className="text-sm text-muted-foreground font-mono">{city} • Tendance avec moyenne mobile 7j</p>
+    <Card className="p-4 sm:p-6 shadow-[var(--shadow-card)] border-border">
+      <div className="mb-4 sm:mb-6">
+        <h3 className="text-base sm:text-lg font-bold mb-1">Température</h3>
+        <p className="text-xs sm:text-sm text-muted-foreground">Moyenne mobile 7 jours</p>
       </div>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={240}>
         <AreaChart data={chartData}>
-          <defs>
-            <linearGradient id="colorTemp" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="hsl(var(--data-orange))" stopOpacity={0.3}/>
-              <stop offset="95%" stopColor="hsl(var(--data-orange))" stopOpacity={0}/>
-            </linearGradient>
-          </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
+          <CartesianGrid strokeDasharray="2 4" stroke="hsl(var(--border))" opacity={0.5} />
           <XAxis 
             dataKey="date" 
             stroke="hsl(var(--muted-foreground))"
-            tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }}
-            tickLine={{ stroke: 'hsl(var(--border))' }}
+            tick={{ fontSize: 10 }}
+            tickLine={false}
           />
           <YAxis 
             stroke="hsl(var(--muted-foreground))"
-            tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }}
-            tickLine={{ stroke: 'hsl(var(--border))' }}
-            label={{ value: '°C', angle: -90, position: 'insideLeft', style: { fontSize: 11, fontFamily: 'IBM Plex Mono' } }}
+            tick={{ fontSize: 10 }}
+            tickLine={false}
+            width={35}
           />
           <Tooltip 
             contentStyle={{ 
               backgroundColor: 'hsl(var(--card))', 
               border: '1px solid hsl(var(--border))',
-              borderRadius: '0.5rem',
-              fontFamily: 'IBM Plex Mono',
-              fontSize: '12px'
+              borderRadius: '0.75rem',
+              fontSize: '11px',
+              padding: '8px 12px'
             }}
-            labelStyle={{ color: 'hsl(var(--foreground))', fontWeight: 600 }}
+            labelStyle={{ fontWeight: 600, marginBottom: 4 }}
           />
           <Area 
             type="monotone" 
             dataKey="temperature" 
-            stroke="hsl(var(--data-orange))" 
-            strokeWidth={2}
-            fill="url(#colorTemp)"
+            stroke="hsl(var(--data-temp))" 
+            strokeWidth={2.5}
+            fill="hsl(var(--data-temp))"
+            fillOpacity={0.1}
           />
           <Line 
             type="monotone" 
@@ -78,7 +73,7 @@ export const TemperatureChart = ({ data, city }: TemperatureChartProps) => {
             stroke="hsl(var(--primary))" 
             strokeWidth={2}
             dot={false}
-            strokeDasharray="5 5"
+            strokeDasharray="4 4"
           />
         </AreaChart>
       </ResponsiveContainer>

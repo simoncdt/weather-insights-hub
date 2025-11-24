@@ -16,54 +16,50 @@ export const StatisticsCards = ({ data }: StatisticsCardsProps) => {
   const stats = [
     {
       label: "Température moyenne",
-      value: `${avgTemp.toFixed(1)}°C`,
-      detail: `Min: ${minTemp.toFixed(1)}°C | Max: ${maxTemp.toFixed(1)}°C`,
+      value: `${avgTemp.toFixed(1)}°`,
+      detail: `${minTemp.toFixed(1)}° - ${maxTemp.toFixed(1)}°`,
       icon: Thermometer,
-      color: "text-data-orange",
-      bgColor: "bg-data-orange/10"
+      color: "text-data-temp"
     },
     {
-      label: "Précipitations totales",
+      label: "Précipitations",
       value: `${totalPrecip.toFixed(0)} mm`,
-      detail: `${data.filter(d => d.precipitation > 0).length} jours de pluie`,
+      detail: `${data.filter(d => d.precipitation > 0).length} jours`,
       icon: CloudRain,
-      color: "text-data-blue",
-      bgColor: "bg-data-blue/10"
+      color: "text-data-precip"
     },
     {
       label: "Humidité moyenne",
       value: `${avgHumidity.toFixed(0)}%`,
-      detail: `Écart-type: ${Math.sqrt(data.reduce((acc, d) => acc + Math.pow(d.humidity - avgHumidity, 2), 0) / data.length).toFixed(1)}%`,
+      detail: `±${Math.sqrt(data.reduce((acc, d) => acc + Math.pow(d.humidity - avgHumidity, 2), 0) / data.length).toFixed(1)}%`,
       icon: Droplets,
-      color: "text-data-cyan",
-      bgColor: "bg-data-cyan/10"
+      color: "text-data-humidity"
     },
     {
       label: "Vent moyen",
       value: `${(data.reduce((acc, d) => acc + d.windSpeed, 0) / data.length).toFixed(1)} km/h`,
-      detail: `Max: ${Math.max(...data.map(d => d.windSpeed)).toFixed(0)} km/h`,
+      detail: `Max ${Math.max(...data.map(d => d.windSpeed)).toFixed(0)} km/h`,
       icon: Wind,
-      color: "text-data-green",
-      bgColor: "bg-data-green/10"
+      color: "text-data-wind"
     }
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
       {stats.map((stat, idx) => (
         <Card 
           key={idx} 
-          className="p-6 shadow-[var(--shadow-data)] border-border/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+          className="p-4 sm:p-5 shadow-[var(--shadow-card)] border-border hover:shadow-[var(--shadow-elevated)] transition-shadow"
         >
-          <div className="flex items-start justify-between mb-3">
-            <div className={cn("p-2.5 rounded-lg", stat.bgColor)}>
-              <stat.icon className={cn("h-5 w-5", stat.color)} />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="p-2 rounded-lg bg-muted">
+              <stat.icon className={cn("h-4 w-4 sm:h-5 sm:w-5", stat.color)} />
             </div>
           </div>
-          <div className="space-y-1">
-            <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>
-            <p className="text-3xl font-bold font-mono tracking-tight">{stat.value}</p>
-            <p className="text-xs text-muted-foreground font-mono">{stat.detail}</p>
+          <div className="space-y-0.5">
+            <p className="text-xs sm:text-sm text-muted-foreground font-medium">{stat.label}</p>
+            <p className="text-2xl sm:text-3xl font-bold tracking-tight">{stat.value}</p>
+            <p className="text-xs text-muted-foreground">{stat.detail}</p>
           </div>
         </Card>
       ))}

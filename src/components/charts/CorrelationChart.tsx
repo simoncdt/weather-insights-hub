@@ -32,55 +32,52 @@ export const CorrelationChart = ({ data, city }: CorrelationChartProps) => {
   const correlation = calculateCorrelation(temps, humidities);
 
   return (
-    <Card className="p-6 shadow-[var(--shadow-data)] border-border/50">
-      <div className="mb-6">
-        <h3 className="text-lg font-semibold mb-1">Analyse de corrélation : Température vs Humidité</h3>
-        <p className="text-sm text-muted-foreground font-mono">
-          {city} • Coefficient de Pearson: {correlation.toFixed(3)} • Taille des points = précipitations
+    <Card className="p-4 sm:p-6 shadow-[var(--shadow-card)] border-border">
+      <div className="mb-4 sm:mb-6">
+        <h3 className="text-base sm:text-lg font-bold mb-1">Corrélation</h3>
+        <p className="text-xs sm:text-sm text-muted-foreground">
+          Température vs Humidité • r = {correlation.toFixed(3)}
         </p>
       </div>
-      <ResponsiveContainer width="100%" height={350}>
+      <ResponsiveContainer width="100%" height={280}>
         <ScatterChart>
-          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
+          <CartesianGrid strokeDasharray="2 4" stroke="hsl(var(--border))" opacity={0.5} />
           <XAxis 
             type="number"
             dataKey="temperature"
-            name="Température"
             stroke="hsl(var(--muted-foreground))"
-            tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }}
-            tickLine={{ stroke: 'hsl(var(--border))' }}
-            label={{ value: 'Température (°C)', position: 'insideBottom', offset: -5, style: { fontSize: 11, fontFamily: 'IBM Plex Mono' } }}
+            tick={{ fontSize: 10 }}
+            tickLine={false}
           />
           <YAxis 
             type="number"
             dataKey="humidity"
-            name="Humidité"
             stroke="hsl(var(--muted-foreground))"
-            tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }}
-            tickLine={{ stroke: 'hsl(var(--border))' }}
-            label={{ value: 'Humidité (%)', angle: -90, position: 'insideLeft', style: { fontSize: 11, fontFamily: 'IBM Plex Mono' } }}
+            tick={{ fontSize: 10 }}
+            tickLine={false}
+            width={35}
           />
-          <ZAxis type="number" dataKey="size" range={[20, 400]} />
+          <ZAxis type="number" dataKey="size" range={[20, 300]} />
           <Tooltip 
-            cursor={{ strokeDasharray: '3 3' }}
+            cursor={{ strokeDasharray: '2 4' }}
             contentStyle={{ 
               backgroundColor: 'hsl(var(--card))', 
               border: '1px solid hsl(var(--border))',
-              borderRadius: '0.5rem',
-              fontFamily: 'IBM Plex Mono',
-              fontSize: '12px'
+              borderRadius: '0.75rem',
+              fontSize: '11px',
+              padding: '8px 12px'
             }}
             formatter={(value: any, name: string) => {
-              if (name === 'precipitation') return [`${value.toFixed(1)} mm`, 'Précipitations'];
-              if (name === 'temperature') return [`${value.toFixed(1)}°C`, 'Température'];
-              if (name === 'humidity') return [`${value.toFixed(0)}%`, 'Humidité'];
+              if (name === 'precipitation') return [`${value.toFixed(1)} mm`, 'Pluie'];
+              if (name === 'temperature') return [`${value.toFixed(1)}°C`, 'Temp'];
+              if (name === 'humidity') return [`${value.toFixed(0)}%`, 'Humid'];
               return value;
             }}
           />
           <Scatter 
             data={chartData} 
-            fill="hsl(var(--accent))"
-            fillOpacity={0.6}
+            fill="hsl(var(--primary))"
+            fillOpacity={0.5}
           />
         </ScatterChart>
       </ResponsiveContainer>
