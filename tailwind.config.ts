@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'monospace'],
+        sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -52,10 +52,10 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         data: {
-          orange: "hsl(var(--data-orange))",
-          blue: "hsl(var(--data-blue))",
-          cyan: "hsl(var(--data-cyan))",
-          green: "hsl(var(--data-green))",
+          temp: "hsl(var(--data-temp))",
+          precip: "hsl(var(--data-precip))",
+          humidity: "hsl(var(--data-humidity))",
+          wind: "hsl(var(--data-wind))",
         },
         chart: {
           1: "hsl(var(--chart-1))",

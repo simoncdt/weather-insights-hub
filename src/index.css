@@ -8,107 +8,115 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 215 25% 97%;
-    --foreground: 215 25% 12%;
+    --background: 0 0% 100%;
+    --foreground: 220 45% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 12%;
+    --card-foreground: 220 45% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 12%;
+    --popover-foreground: 220 45% 12%;
 
-    --primary: 215 90% 28%;
+    --primary: 220 70% 20%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 15% 90%;
-    --secondary-foreground: 215 25% 12%;
+    --secondary: 220 20% 95%;
+    --secondary-foreground: 220 45% 12%;
 
-    --muted: 215 15% 94%;
-    --muted-foreground: 215 10% 45%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 20% 50%;
 
-    --accent: 185 85% 48%;
+    --accent: 220 70% 35%;
     --accent-foreground: 0 0% 100%;
 
-    --data-orange: 25 95% 58%;
-    --data-blue: 215 90% 55%;
-    --data-cyan: 185 85% 48%;
-    --data-green: 150 75% 45%;
+    --data-temp: 220 70% 50%;
+    --data-precip: 220 60% 40%;
+    --data-humidity: 220 50% 55%;
+    --data-wind: 220 60% 45%;
     
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 215 15% 88%;
-    --input: 215 15% 88%;
-    --ring: 185 85% 48%;
-
-    --radius: 0.75rem;
-
-    --chart-1: 215 90% 55%;
-    --chart-2: 185 85% 48%;
-    --chart-3: 25 95% 58%;
-    --chart-4: 150 75% 45%;
-    --chart-5: 280 70% 55%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(215 90% 28%), hsl(185 85% 48%));
-    --gradient-data: linear-gradient(180deg, hsl(215 90% 55% / 0.1), transparent);
-    
-    --shadow-data: 0 4px 20px -4px hsl(215 90% 28% / 0.15);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 215 30% 8%;
-    --foreground: 215 15% 95%;
-
-    --card: 215 25% 12%;
-    --card-foreground: 215 15% 95%;
-
-    --popover: 215 25% 12%;
-    --popover-foreground: 215 15% 95%;
-
-    --primary: 185 85% 48%;
-    --primary-foreground: 215 30% 8%;
-
-    --secondary: 215 20% 18%;
-    --secondary-foreground: 215 15% 95%;
-
-    --muted: 215 20% 15%;
-    --muted-foreground: 215 10% 60%;
-
-    --accent: 185 85% 48%;
-    --accent-foreground: 215 30% 8%;
-
-    --data-orange: 25 95% 58%;
-    --data-blue: 215 90% 55%;
-    --data-cyan: 185 85% 48%;
-    --data-green: 150 75% 45%;
-
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 20%;
-    --input: 215 20% 20%;
-    --ring: 185 85% 48%;
+    --border: 220 20% 90%;
+    --input: 220 20% 95%;
+    --ring: 220 70% 35%;
 
-    --chart-1: 215 90% 55%;
-    --chart-2: 185 85% 48%;
-    --chart-3: 25 95% 58%;
-    --chart-4: 150 75% 45%;
-    --chart-5: 280 70% 55%;
+    --radius: 1rem;
 
-    --shadow-data: 0 4px 20px -4px hsl(185 85% 48% / 0.25);
+    --chart-1: 220 70% 50%;
+    --chart-2: 220 60% 40%;
+    --chart-3: 220 50% 55%;
+    --chart-4: 220 60% 45%;
+    --chart-5: 220 55% 48%;
+
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+    --shadow-elevated: 0 4px 16px -2px rgb(0 0 0 / 0.08);
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 45% 8%;
+    --foreground: 220 10% 96%;
+
+    --card: 220 40% 11%;
+    --card-foreground: 220 10% 96%;
+
+    --popover: 220 40% 11%;
+    --popover-foreground: 220 10% 96%;
+
+    --primary: 220 70% 60%;
+    --primary-foreground: 220 45% 8%;
+
+    --secondary: 220 30% 16%;
+    --secondary-foreground: 220 10% 96%;
+
+    --muted: 220 30% 14%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 220 70% 55%;
+    --accent-foreground: 220 45% 8%;
+
+    --data-temp: 220 70% 60%;
+    --data-precip: 220 60% 50%;
+    --data-humidity: 220 50% 65%;
+    --data-wind: 220 60% 55%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 30% 18%;
+    --input: 220 30% 16%;
+    --ring: 220 70% 55%;
+
+    --chart-1: 220 70% 60%;
+    --chart-2: 220 60% 50%;
+    --chart-3: 220 50% 65%;
+    --chart-4: 220 60% 55%;
+    --chart-5: 220 55% 58%;
+
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.3);
+    --shadow-elevated: 0 8px 24px -4px rgb(0 0 0 / 0.4);
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overscroll-behavior: none;
+  }
+
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: max(0px, env(safe-area-inset-left));
+      padding-right: max(0px, env(safe-area-inset-right));
+    }
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

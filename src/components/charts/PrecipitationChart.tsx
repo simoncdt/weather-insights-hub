@@ -15,40 +15,40 @@ export const PrecipitationChart = ({ data, city }: PrecipitationChartProps) => {
   }));
 
   return (
-    <Card className="p-6 shadow-[var(--shadow-data)] border-border/50">
-      <div className="mb-6">
-        <h3 className="text-lg font-semibold mb-1">Précipitations quotidiennes</h3>
-        <p className="text-sm text-muted-foreground font-mono">{city} • Distribution des pluies</p>
+    <Card className="p-4 sm:p-6 shadow-[var(--shadow-card)] border-border">
+      <div className="mb-4 sm:mb-6">
+        <h3 className="text-base sm:text-lg font-bold mb-1">Précipitations</h3>
+        <p className="text-xs sm:text-sm text-muted-foreground">Distribution quotidienne</p>
       </div>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={240}>
         <BarChart data={chartData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
+          <CartesianGrid strokeDasharray="2 4" stroke="hsl(var(--border))" opacity={0.5} />
           <XAxis 
             dataKey="date" 
             stroke="hsl(var(--muted-foreground))"
-            tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }}
-            tickLine={{ stroke: 'hsl(var(--border))' }}
+            tick={{ fontSize: 10 }}
+            tickLine={false}
           />
           <YAxis 
             stroke="hsl(var(--muted-foreground))"
-            tick={{ fontSize: 11, fontFamily: 'IBM Plex Mono' }}
-            tickLine={{ stroke: 'hsl(var(--border))' }}
-            label={{ value: 'mm', angle: -90, position: 'insideLeft', style: { fontSize: 11, fontFamily: 'IBM Plex Mono' } }}
+            tick={{ fontSize: 10 }}
+            tickLine={false}
+            width={35}
           />
           <Tooltip 
             contentStyle={{ 
               backgroundColor: 'hsl(var(--card))', 
               border: '1px solid hsl(var(--border))',
-              borderRadius: '0.5rem',
-              fontFamily: 'IBM Plex Mono',
-              fontSize: '12px'
+              borderRadius: '0.75rem',
+              fontSize: '11px',
+              padding: '8px 12px'
             }}
-            labelStyle={{ color: 'hsl(var(--foreground))', fontWeight: 600 }}
+            labelStyle={{ fontWeight: 600, marginBottom: 4 }}
           />
           <Bar 
             dataKey="precipitation" 
-            fill="hsl(var(--data-blue))"
-            radius={[4, 4, 0, 0]}
+            fill="hsl(var(--data-precip))"
+            radius={[6, 6, 0, 0]}
           />
         </BarChart>
       </ResponsiveContainer>
